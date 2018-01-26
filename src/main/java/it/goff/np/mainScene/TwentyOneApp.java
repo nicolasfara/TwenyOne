@@ -1,4 +1,4 @@
-package it.goff.np;
+package it.goff.np.mainScene;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class TwentyOneApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MainViewStage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/MainViewStage.fxml"));
         Scene mainScene = new Scene(root);
 
         stage.setTitle("TwentyOne");

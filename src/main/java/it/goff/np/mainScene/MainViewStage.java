@@ -1,4 +1,4 @@
-package it.goff.np;
+package it.goff.np.mainScene;
 
 public class MainViewStage {
 }
