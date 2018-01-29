@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 
 public class TwentyOneApp extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/MainViewStage.fxml"));
@@ -16,9 +20,5 @@ public class TwentyOneApp extends Application {
         stage.setTitle("TwentyOne");
         stage.setScene(mainScene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
