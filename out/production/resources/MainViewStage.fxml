@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="it.goff.np.mainScene.MainViewStage"
-            prefHeight="400.0" prefWidth="600.0" alignment="CENTER">
+<?import javafx.scene.shape.Line?>
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="it.goff.np.mainScene.MainViewStage" prefHeight="400.0" prefWidth="600.0" hgap="10" vgap="10">
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <HBox BorderPane.alignment="TOP_CENTER" spacing="10">
+        <Button fx:id="btn" text="Ciao" HBox.hgrow="ALWAYS" />
+        <Button fx:id="btn2" text="Ciao2" HBox.hgrow="ALWAYS"/>
+    </HBox>
 
-    <Label fx:id="testLabel" textAlignment="CENTER" text="Main View" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Line startX="0" endX="600" startY="40" endY="40" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+    <GridPane vgap="20" hgap="10" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Button minHeight="50" minWidth="50" fx:id="btn3" text="Ciao1" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn4" text="Ciao2" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn5" text="Ciao3" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn6" text="Ciao4" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn7" text="Ciao5" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn8" text="Ciao6" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn9" text="Ciao4" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn10" text="Ciao5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Button minHeight="50" minWidth="50" fx:id="btn11" text="Ciao6" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    </GridPane>
 </GridPane>
