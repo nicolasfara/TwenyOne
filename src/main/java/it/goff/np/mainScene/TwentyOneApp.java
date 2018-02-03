@@ -14,8 +14,9 @@ public class TwentyOneApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/MainViewStage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainViewStage.fxml"));
         Scene mainScene = new Scene(root);
+        mainScene.getStylesheets().add("/css/MainView.css");
 
         stage.setTitle("TwentyOne");
         stage.setScene(mainScene);
