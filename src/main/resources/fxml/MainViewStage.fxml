@@ -35,8 +35,6 @@
                 <Button fx:id="btn30" text="Calculate" VBox.vgrow="ALWAYS"/>
             </VBox>
         </right>
-
     </BorderPane>
-
 
 </GridPane>
