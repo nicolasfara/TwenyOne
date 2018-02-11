@@ -1,5 +1,7 @@
 package it.goff.np.mainScene;
 
+import it.goff.np.jsonParsingController.ButtonParser;
+import it.goff.np.jsonParsingController.ButtonParserImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,11 +15,16 @@ public class MainViewStageController {
 
     @FXML private FlowPane flow;
     @FXML private TextArea list;
+    private ButtonParser parser;
 
     @FXML
     public void initialize() {
-        List<Button> btnList = Stream.generate(Button::new).limit(15).collect(Collectors.toList());
-        btnList.forEach(btn -> btn.setText("Button"));
+        parser = new ButtonParserImpl("src/main/resources/JSON/weappons.json");
+        List<Button> btnList = Stream.generate(Button::new).limit(parser.size()).collect(Collectors.toList());
+        List<String> str = parser.parseName().collect(Collectors.toList());
+        for (int i = 0; i < parser.size(); i++) {
+            btnList.get(i).setText(str.get(i));
+        }
         flow.getChildren().addAll(btnList);
     }
 
