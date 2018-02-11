@@ -16,18 +16,25 @@
 
     <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="2">
         <left>
-            <GridPane vgap="20" hgap="10" GridPane.rowIndex="2" GridPane.columnIndex="0">
-                <Button minHeight="50" minWidth="50" fx:id="btn3" text="Ciao1" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn4" text="Ciao2" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn5" text="Ciao3" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn6" text="Ciao4" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn7" text="Ciao5" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn8" text="Ciao6" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn9" text="Ciao4" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn10" text="Ciao5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                <Button minHeight="50" minWidth="50" fx:id="btn11" text="Ciao6" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-            </GridPane>
+            <FlowPane fx:id="flow" vgap="20" hgap="10" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                <!--
+                    Button loaded dynamically from JSON file
+                !-->
+            </FlowPane>
         </left>
+
+        <center>
+            <VBox spacing="10" alignment="TOP_CENTER">
+                <!-- Setup margin !-->
+                <BorderPane.margin>
+                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                </BorderPane.margin>
+
+                <Label text="Enter TAX:" alignment="BOTTOM_LEFT"/>
+                <TextField fx:id="taxField" accessibleText="TAX" alignment="TOP_LEFT"/>
+                <Button fx:id="taxBtn" text="Add TAX" alignment="BASELINE_RIGHT" onAction="#taxClick"/>
+            </VBox>
+        </center>
 
         <right>
             <VBox spacing="10" alignment="CENTER_RIGHT">

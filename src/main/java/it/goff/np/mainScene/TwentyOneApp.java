@@ -21,7 +21,5 @@ public class TwentyOneApp extends Application {
         stage.setTitle("TwentyOne");
         stage.setScene(mainScene);
         stage.show();
-
-
     }
 }
