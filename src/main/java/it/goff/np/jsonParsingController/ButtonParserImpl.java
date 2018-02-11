@@ -23,7 +23,7 @@ public class ButtonParserImpl implements ButtonParser {
     public Stream<String> parseName() {
         try {
             InputStream is = new FileInputStream(new File(pathFile));
-            return readJsonStream(is).stream().map(Weappon::getName);
+            return readJsonStream(is).stream().map(Weapon::getName);
         } catch (IOException io) {
             io.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class ButtonParserImpl implements ButtonParser {
     public Stream<String> parseImage() {
         try {
             InputStream is = new FileInputStream(new File(pathFile));
-            return readJsonStream(is).stream().map(Weappon::getUrl);
+            return readJsonStream(is).stream().map(Weapon::getUrl);
         } catch (IOException io) {
             io.printStackTrace();
         }
@@ -53,15 +53,15 @@ public class ButtonParserImpl implements ButtonParser {
     }
 
     @NotNull
-    private List<Weappon> readJsonStream(InputStream is) throws IOException {
+    private List<Weapon> readJsonStream(InputStream is) throws IOException {
         try (JsonReader reader = new JsonReader(new InputStreamReader(is, "UTF-8"))){
             return readMessagesArray(reader);
         }
     }
 
     @NotNull
-    private List<Weappon> readMessagesArray(JsonReader reader) throws IOException {
-        List<Weappon> messages = new ArrayList<>();
+    private List<Weapon> readMessagesArray(JsonReader reader) throws IOException {
+        List<Weapon> messages = new ArrayList<>();
 
         reader.beginArray();
         while (reader.hasNext()) {
@@ -72,7 +72,7 @@ public class ButtonParserImpl implements ButtonParser {
     }
 
     @NotNull
-    private Weappon readMessage(JsonReader reader) throws IOException {
+    private Weapon readMessage(JsonReader reader) throws IOException {
         String wName = null;
         String url = null;
 
@@ -86,7 +86,7 @@ public class ButtonParserImpl implements ButtonParser {
             }
         }
         reader.endObject();
-        return new WeapponImpl.WeapponBuilder()
+        return new WeaponImpl.WeapponBuilder()
                 .name(wName)
                 .url(url)
                 .build();
