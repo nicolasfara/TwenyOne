@@ -4,17 +4,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.FlowPane;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MainViewStageController {
-    @FXML
-    private GridPane grid;
+
+    @FXML private FlowPane flow;
+    @FXML private TextArea list;
 
     @FXML
-    private TextArea list;
+    public void initialize() {
+        List<Button> btnList = Stream.generate(Button::new).limit(15).collect(Collectors.toList());
+        btnList.forEach(btn -> btn.setText("Button"));
+        flow.getChildren().addAll(btnList);
+    }
 
     @FXML
     private void click(ActionEvent event) {
@@ -22,10 +27,11 @@ public class MainViewStageController {
         list.setText(btn.getText());
     }
 
-    void startButton() {
-        List<Button> btnList = Stream.generate(Button::new).limit(5).collect(Collectors.toList());
-        btnList.forEach(f -> f.setText("Ciao"));
-        grid.addRow(0, btnList.get(0));
-
+    @FXML
+    private void taxClick() {
+        //TODO
     }
+
+
+
 }
