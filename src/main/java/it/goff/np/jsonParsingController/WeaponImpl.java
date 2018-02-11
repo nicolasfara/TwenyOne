@@ -1,11 +1,11 @@
 package it.goff.np.jsonParsingController;
 
-public class WeapponImpl implements Weappon {
+public class WeaponImpl implements Weapon {
 
     private String name;
     private String url;
 
-    public WeapponImpl(final WeapponBuilder wb) {
+    public WeaponImpl(final WeaponBuilder wb) {
         this.name = wb.name;
         this.url = wb.url;
     }
@@ -20,26 +20,26 @@ public class WeapponImpl implements Weappon {
         return this.url;
     }
 
-    public static class WeapponBuilder {
+    public static class WeaponBuilder {
         private String name;
         private String url;
 
-        public WeapponBuilder() {
+        public WeaponBuilder() {
 
         }
 
-        public WeapponBuilder name(String name) {
+        public WeaponBuilder name(String name) {
             this.name = name;
             return this;
         }
 
-        public WeapponBuilder url(String url) {
+        public WeaponBuilder url(String url) {
             this.url = url;
             return this;
         }
 
-        public Weappon build() {
-            return new WeapponImpl(this);
+        public Weapon build() {
+            return new WeaponImpl(this);
         }
     }
 }

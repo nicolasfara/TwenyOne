@@ -1,6 +1,6 @@
 package it.goff.np.jsonParsingController;
 
-public interface Weappon {
+public interface Weapon {
 
     String getName();
 
