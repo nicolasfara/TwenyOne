@@ -27,7 +27,7 @@
             <VBox spacing="10" alignment="TOP_CENTER">
                 <!-- Setup margin !-->
                 <BorderPane.margin>
-                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                    <Insets bottom="25.0" left="25.0" right="25.0"/>
                 </BorderPane.margin>
 
                 <Label text="Enter TAX:" alignment="BOTTOM_LEFT"/>

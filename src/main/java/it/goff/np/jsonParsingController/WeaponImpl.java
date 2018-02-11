@@ -21,6 +21,7 @@ public class WeaponImpl implements Weapon {
     }
 
     public static class WeaponBuilder {
+        private boolean isBuilded = false;
         private String name;
         private String url;
 
@@ -39,6 +40,10 @@ public class WeaponImpl implements Weapon {
         }
 
         public Weapon build() {
+            if(isBuilded) {
+                throw new IllegalStateException();
+            }
+            isBuilded = true;
             return new WeaponImpl(this);
         }
     }

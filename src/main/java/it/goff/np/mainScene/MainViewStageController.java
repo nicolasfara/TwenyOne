@@ -15,11 +15,10 @@ public class MainViewStageController {
 
     @FXML private FlowPane flow;
     @FXML private TextArea list;
-    private ButtonParser parser;
 
     @FXML
     public void initialize() {
-        parser = new ButtonParserImpl("src/main/resources/JSON/weapons.json");
+        ButtonParser parser = new ButtonParserImpl("src/main/resources/JSON/weapons.json");
         List<Button> btnList = Stream.generate(Button::new).limit(parser.size()).collect(Collectors.toList());
         List<String> str = parser.parseName().collect(Collectors.toList());
         for (int i = 0; i < parser.size(); i++) {

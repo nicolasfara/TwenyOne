@@ -86,7 +86,8 @@ public class ButtonParserImpl implements ButtonParser {
             }
         }
         reader.endObject();
-        return new WeaponImpl.WeapponBuilder()
+
+        return new WeaponImpl.WeaponBuilder()
                 .name(wName)
                 .url(url)
                 .build();
