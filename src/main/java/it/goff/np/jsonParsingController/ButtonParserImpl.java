@@ -8,11 +8,13 @@ import javafx.scene.control.ButtonType;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class ButtonParserImpl implements ButtonParser {
 
     private final String pathFile;
+    private InputStream is;
 
     /**
      * Constructor for this class.
@@ -25,28 +27,23 @@ public class ButtonParserImpl implements ButtonParser {
             System.exit(1);
         }
         this.pathFile = pathFile;
+        try {
+            is = new FileInputStream(new File(this.pathFile));
+        } catch (IOException ex) {
+            Alert readErrorAlert = new Alert(Alert.AlertType.ERROR, "IOException on read " + this.pathFile, ButtonType.CLOSE);
+            readErrorAlert.showAndWait();
+            System.exit(1);
+        }
     }
 
     @Override
     public Stream<String> parseName() {
-        try {
-            InputStream is = new FileInputStream(new File(pathFile));
-            return readJsonStream(is).stream().map(Weapon::getName);
-        } catch (IOException io) {
-            io.printStackTrace();
-        }
-        throw new IllegalStateException();
+        return readStream(Weapon::getName);
     }
 
     @Override
     public Stream<String> parseImage() {
-        try {
-            InputStream is = new FileInputStream(new File(pathFile));
-            return readJsonStream(is).stream().map(Weapon::getUrl);
-        } catch (IOException io) {
-            io.printStackTrace();
-        }
-        throw new IllegalStateException();
+        return readStream(Weapon::getUrl);
     }
 
     @Override
@@ -58,6 +55,16 @@ public class ButtonParserImpl implements ButtonParser {
             io.printStackTrace();
         }
         throw new IllegalStateException();
+    }
+
+     private Stream<String> readStream(Function<? super Weapon, ? extends String> func) {
+         try {
+             InputStream is = new FileInputStream(new File(pathFile));
+             return readJsonStream(is).stream().map(func);
+         } catch (IOException io) {
+             io.printStackTrace();
+         }
+         throw new IllegalStateException();
     }
 
     @NotNull
