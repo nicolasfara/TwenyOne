@@ -2,6 +2,9 @@ package it.goff.np.jsonParsingController;
 
 import com.google.gson.stream.JsonReader;
 import com.sun.istack.internal.NotNull;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +19,11 @@ public class ButtonParserImpl implements ButtonParser {
      * @param pathFile Require the path for the JSON file
      */
     public ButtonParserImpl(@NotNull final String pathFile) {
+        if(! new File(pathFile).exists()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Unable to find " + pathFile + " file.", ButtonType.CLOSE);
+            alert.showAndWait();
+            System.exit(1);
+        }
         this.pathFile = pathFile;
     }
 
