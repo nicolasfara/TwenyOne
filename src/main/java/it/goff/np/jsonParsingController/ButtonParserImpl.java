@@ -13,8 +13,7 @@ import java.util.stream.Stream;
 
 public class ButtonParserImpl implements ButtonParser {
 
-    private final String pathFile;
-    private InputStream is;
+    private InputStream inputStream;
 
     /**
      * Constructor for this class.
@@ -26,11 +25,10 @@ public class ButtonParserImpl implements ButtonParser {
             alert.showAndWait();
             System.exit(1);
         }
-        this.pathFile = pathFile;
         try {
-            is = new FileInputStream(new File(this.pathFile));
+            inputStream = new FileInputStream(new File(pathFile));
         } catch (IOException ex) {
-            Alert readErrorAlert = new Alert(Alert.AlertType.ERROR, "IOException on read " + this.pathFile, ButtonType.CLOSE);
+            Alert readErrorAlert = new Alert(Alert.AlertType.ERROR, "IOException on read " + pathFile, ButtonType.CLOSE);
             readErrorAlert.showAndWait();
             System.exit(1);
         }
@@ -49,8 +47,7 @@ public class ButtonParserImpl implements ButtonParser {
     @Override
     public int size() {
         try {
-            InputStream is = new FileInputStream(new File(pathFile));
-            return readJsonStream(is).size();
+            return readJsonStream(inputStream).size();
         } catch (IOException io) {
             io.printStackTrace();
         }
@@ -59,8 +56,7 @@ public class ButtonParserImpl implements ButtonParser {
 
      private Stream<String> readStream(Function<? super Weapon, ? extends String> func) {
          try {
-             InputStream is = new FileInputStream(new File(pathFile));
-             return readJsonStream(is).stream().map(func);
+             return readJsonStream(inputStream).stream().map(func);
          } catch (IOException io) {
              io.printStackTrace();
          }
