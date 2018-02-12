@@ -1,7 +1,7 @@
 package it.goff.np.jsonParsingController;
 
 import com.google.gson.stream.JsonReader;
-import org.jetbrains.annotations.NotNull;
+import com.sun.istack.internal.NotNull;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
