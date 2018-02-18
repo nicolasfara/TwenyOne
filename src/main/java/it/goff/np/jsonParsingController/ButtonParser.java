@@ -3,7 +3,7 @@ package it.goff.np.jsonParsingController;
 import java.util.stream.Stream;
 
 /**
- * Interface for parsing JSON file to build a dynamic structure of Button in the GUI
+ * Interface for parsing JSON file to build a dynamic structure of Button in the GUI.
  */
 public interface ButtonParser {
     /**
